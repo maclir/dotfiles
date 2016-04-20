@@ -1,0 +1,25 @@
+[user]
+	name = Alireza Pazirandeh
+	email = maclir@gmail.com
+[alias]
+        ignore = update-index --assume-unchanged
+        unignore = update-index --no-assume-unchanged
+        ignored = !git ls-files -v | grep ^[a-z]
+	addnw = !sh -c 'git diff -w --no-color -- "$@" | git apply --cached --ignore-whitespace' -
+	lg = log --graph --pretty=format:'%Cred%h%Creset -%C(yellow)%d%Creset %s %Cgreen(%cr) %C(bold blue)<%an>%Creset' --abbrev-commit --date=relative
+	pushl = !git push && git log --abbrev-commit
+	publish = !git push -u origin $(git rev-parse --abbrev-ref HEAD)
+	logb = !sh -c 'git log $0..head'
+	logr = !sh -c 'git log $0..master --merges'
+[push]
+	default = simple
+[merge]
+	tool = opendiff
+	conflictstyle = diff3
+	prompt = false
+[filter "lfs"]
+	clean = git-lfs clean %f
+	smudge = git-lfs smudge %f
+	required = true
+[rebase]
+	autosquash = true
