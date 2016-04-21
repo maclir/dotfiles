@@ -37,6 +37,7 @@ set smartindent
 call plug#begin('~/.vim/plugged')
 
 Plug 'tpope/vim-sleuth'
+Plug 'editorconfig/editorconfig-vim'
 
 call plug#end()
 " }}}
