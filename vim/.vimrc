@@ -41,3 +41,5 @@ Plug 'editorconfig/editorconfig-vim'
 
 call plug#end()
 " }}}
+
+set list listchars=tab:»·,trail:·
