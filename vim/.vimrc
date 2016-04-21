@@ -1,6 +1,7 @@
 syntax on
 set backspace=eol,start,indent
 au FileType gitcommit set tw=72
+au BufNewFile,BufRead COMMIT_EDITMSG set ft=gitcommit
 set cursorline
 
 filetype indent plugin on
