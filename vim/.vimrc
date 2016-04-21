@@ -32,3 +32,11 @@ set shiftwidth=4
 set autoindent
 set smartindent
 " }}}
+
+" Plug {{{
+call plug#begin('~/.vim/plugged')
+
+Plug 'tpope/vim-sleuth'
+
+call plug#end()
+" }}}
