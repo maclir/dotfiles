@@ -33,13 +33,9 @@ set autoindent
 set smartindent
 " }}}
 
-" Plug {{{
-call plug#begin('~/.vim/plugged')
-
-Plug 'tpope/vim-sleuth'
-Plug 'editorconfig/editorconfig-vim'
-
-call plug#end()
-" }}}
-
 set list listchars=tab:»·,trail:·
+
+" Load Config {{{
+runtime! config/mappings.vim
+runtime! config/plugins.vim
+" }}}
