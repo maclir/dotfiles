@@ -3,7 +3,6 @@ export PATH=$PATH:/usr/local/git/bin
 export PATH=$PATH:$HOME/Development/Android/sdk/platform-tools
 export PATH=$PATH:$HOME/Development/Android/sdk/tools
 
-source ~/.bash_scripts/git-completion.bash
 source ~/.env.sh
 
 export ANDROID_HOME="$HOME/Development/Android/sdk"
