@@ -26,6 +26,11 @@ if [ -z "$SSH_AUTH_SOCK" ] ; then
 fi
 
 # Aliases
+curl_jira() {
+  curl -s -X GET -H "Authorization: Basic ${JIRA_TOKEN}" -H "Content-Type: application/json" "https://saltside.atlassian.net/rest/api/2/search?jql=assignee=currentuser()+AND+status!=\"open\"+AND+status!=\"closed\"+AND+status!=\"To+Do\"+AND+status!=\"Done\"&fields=summary" | jq '.issues[] | .key + ": " + .fields.summary'
+}
+alias jira=curl_jira
+
 curl_circleci() {
     curl -v -X POST https://circleci.com/api/v1/project/Saltside/android/tree/$1?circle-token=${CIRCLECI_TOKEN}
 }
