@@ -42,3 +42,12 @@ run_instance_ip_tmux() {
 alias instanceIpTmux=run_instance_ip_tmux
 alias instanceIps=~/work/platform-utilities/instance-ips/./aws-instance-ips
 
+run_open_pull_request() {
+    hub pull-request -f -o -b $1 -F - <<EOF
+$2
+
+[$3](https://saltside.atlassian.net/browse/$3)
+EOF
+}
+alias pull_request=run_open_pull_request
+alias sandbox="saltside-workstation sandbox"
