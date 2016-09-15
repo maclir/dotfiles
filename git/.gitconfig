@@ -31,3 +31,9 @@
 	log = diff-highlight | less
 	show = diff-highlight | less
 	diff = diff-highlight | less
+[branch]
+	autoSetupRebase = always
+[pull]
+	rebase = true
+[remote "origin"]
+	prune = true
