@@ -9,7 +9,7 @@
 	lg = log --graph --pretty=format:'%Cred%h%Creset -%C(yellow)%d%Creset %s %Cgreen(%cr) %C(bold blue)<%an>%Creset' --abbrev-commit --date=relative
 	pushl = !git push && git log --abbrev-commit
 	publish = !git push -u origin $(git rev-parse --abbrev-ref HEAD)
-	logb = !sh -c 'git log $0..head'
+	logb = !sh -c 'git log $0..HEAD'
 	logr = !sh -c 'git log $0..master --merges'
 [push]
 	default = simple
