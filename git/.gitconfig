@@ -37,3 +37,5 @@
 	rebase = true
 [remote "origin"]
 	prune = true
+[mergetool]
+	keepBackup = false
