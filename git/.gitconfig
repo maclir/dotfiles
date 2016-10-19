@@ -2,9 +2,9 @@
 	name = Alireza Pazirandeh
 	email = maclir@gmail.com
 [alias]
-        ignore = update-index --assume-unchanged
-        unignore = update-index --no-assume-unchanged
-        ignored = !git ls-files -v | grep ^[a-z]
+	ignore = update-index --assume-unchanged
+	unignore = update-index --no-assume-unchanged
+	ignored = !git ls-files -v | grep ^[a-z]
 	addnw = !sh -c 'git diff -w --no-color -- "$@" | git apply --cached --ignore-whitespace' -
 	lg = log --graph --pretty=format:'%Cred%h%Creset -%C(yellow)%d%Creset %s %Cgreen(%cr) %C(bold blue)<%an>%Creset' --abbrev-commit --date=relative
 	pushl = !git push && git log --abbrev-commit
