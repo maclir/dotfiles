@@ -11,6 +11,17 @@
 	publish = !git push -u origin $(git rev-parse --abbrev-ref HEAD)
 	logb = !sh -c 'git log $0..HEAD'
 	logr = !sh -c 'git log $0..master --merges'
+	cleanupp = !git branch -vv \
+		| grep ': gone' \
+		| grep -v master \
+		| sed 's/. *//' \
+		| cut -d ' ' -f 1
+	cleanup = !git branch -vv \
+		| grep ': gone' \
+		| grep -v master \
+		| sed 's/. *//' \
+		| cut -d ' ' -f 1 \
+		| xargs git branch -D
 [push]
 	default = simple
 [merge]
