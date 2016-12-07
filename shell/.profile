@@ -43,10 +43,20 @@ alias instanceIpTmux=run_instance_ip_tmux
 alias instanceIps=~/work/platform-utilities/instance-ips/./aws-instance-ips
 
 run_open_pull_request() {
-	hub pull-request -f -o -b $1 -F - <<EOF
-	$2
-
-	[$3](https://saltside.atlassian.net/browse/$3)
+	curl -i -u maclir:$GITHUB_TOKEN \
+		-H "Accept: application/vnd.github.v3+json" \
+		-H "Content-Type: application/json" \
+		https://api.github.com/repos/saltside/android/pulls \
+		-X POST -d @- << EOF
+{
+	"title": "${2}",
+	"body": "[${3}](https://saltside.atlassian.net/browse/${3})",
+	"head": "$(git rev-parse --abbrev-ref HEAD)",
+	"base": "${1}",
+	"labels": [
+		"review"
+	]
+}
 EOF
 }
 alias pull_request=run_open_pull_request
