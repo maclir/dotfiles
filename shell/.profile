@@ -1,11 +1,8 @@
 export PATH=$PATH:/usr/local/bin
 export PATH=$PATH:/usr/local/git/bin
-export PATH=$PATH:$HOME/Development/Android/sdk/platform-tools
-export PATH=$PATH:$HOME/Development/Android/sdk/tools
 
 source ~/.env.sh
 
-export ANDROID_HOME="$HOME/Development/Android/sdk"
 export ANDROID_LINT_INCLUDE_LDPI="true"
 export LC_ALL=en_US.UTF-8
 export LANG=en_US.UTF-8
