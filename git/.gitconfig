@@ -14,11 +14,13 @@
 	cleanupp = !git branch -vv \
 		| grep ': gone' \
 		| grep -v master \
+		| grep -v develop \
 		| sed 's/. *//' \
 		| cut -d ' ' -f 1
 	cleanup = !git branch -vv \
 		| grep ': gone' \
 		| grep -v master \
+		| grep -v develop \
 		| sed 's/. *//' \
 		| cut -d ' ' -f 1 \
 		| xargs git branch -D
@@ -31,6 +33,7 @@
 		| column -t -s \"\t\"
 [push]
 	default = simple
+	followTags = true
 [merge]
 	tool = opendiff
 	conflictstyle = diff3
