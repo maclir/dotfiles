@@ -55,4 +55,16 @@ run_open_pull_request() {
 EOF
 }
 alias pull_request=run_open_pull_request
-alias sandbox="saltside-workstation sandbox"
+
+
+login_application() {
+	adb shell input keyboard text ${1} && adb shell input keyevent 61 && adb shell input text ${2} && adb shell input keyevent 66
+}
+alias flogin=login_application
+
+take_adb_screenshot() {
+	adb shell screencap -p /sdcard/${1}.png
+	adb pull /sdcard/${1}.png ~/Desktop/adb-screenshots/${1}.png
+	adb shell rm /sdcard/${1}.png
+}
+alias adb_screenshot=take_adb_screenshot
