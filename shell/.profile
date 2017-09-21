@@ -21,6 +21,11 @@ if [ -z "$SSH_AUTH_SOCK" ] ; then
 	ssh-add
 fi
 
+# gcloud
+
+source ~/.google-cloud-sdk/completion.zsh.inc
+source ~/.google-cloud-sdk/path.zsh.inc
+
 # Aliases
 curl_jira() {
 	curl -s -X GET -H "Authorization: Basic ${JIRA_TOKEN}" -H "Content-Type: application/json" "https://frontiercargroup.atlassian.net/rest/api/2/search?jql=assignee=currentuser()+AND+status!=\"open\"+AND+status!=\"closed\"+AND+status!=\"Backlog\"+AND+status!=\"Live\"+AND+status!=\"Done\"&fields=summary" | jq '.issues[] | .key + ": " + .fields.summary'
