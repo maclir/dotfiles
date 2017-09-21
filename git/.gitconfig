@@ -60,3 +60,6 @@
 	prune = true
 [mergetool]
 	keepBackup = false
+[ghq]
+	root = ~/.ghq
+
