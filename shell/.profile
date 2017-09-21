@@ -1,5 +1,6 @@
 export PATH=$PATH:/usr/local/bin
 export PATH=$PATH:/usr/local/git/bin
+export PATH="/usr/local/opt/python/libexec/bin:$PATH"
 
 source ~/.env.sh
 
