@@ -35,6 +35,8 @@ set smartindent
 
 set list listchars=tab:»·,trail:·
 
+set runtimepath^=~/.vim/bundle/ctrlp.vim
+
 " Load Config {{{
 runtime! config/mappings.vim
 runtime! config/plugins.vim
