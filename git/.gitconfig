@@ -45,7 +45,7 @@
 [rebase]
 	autosquash = true
 [diff]
-	compactionHeuristic = true
+	indentHeuristic = true
 [interactive]
 	diffFilter = diff-highlight
 [pager]
@@ -63,3 +63,5 @@
 [ghq]
 	root = ~/.ghq
 
+[init]
+	templatedir = ~/.git-templates
