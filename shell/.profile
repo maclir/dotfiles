@@ -8,6 +8,9 @@ export ANDROID_LINT_INCLUDE_LDPI="true"
 export LC_ALL=en_US.UTF-8
 export LANG=en_US.UTF-8
 
+export NVM_DIR="$HOME/.nvm"
+source /usr/local/opt/nvm/nvm.sh
+
 #Go
 export PATH=$PATH:$GOPATH/bin
 export PATH=$PATH:$GOROOT/bin
