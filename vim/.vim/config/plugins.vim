@@ -2,9 +2,13 @@ call plug#begin('~/.vim/plugged')
 
 Plug 'tpope/vim-sleuth'
 Plug 'fatih/vim-go'
-Plug 'IN3D/vim-raml'
+Plug 'chase/vim-ansible-yaml'
+Plug 'avakhov/vim-yaml'
 Plug 'editorconfig/editorconfig-vim'
 Plug 'junegunn/fzf', { 'dir': '~/.fzf', 'do': './install --all' }
 Plug 'airblade/vim-gitgutter'
+Plug 'tpope/vim-commentary'
+Plug 'itchyny/lightline.vim'
+Plug 'itchyny/vim-gitbranch'
 
 call plug#end()
