@@ -52,6 +52,8 @@
 	log = diff-highlight | less
 	show = diff-highlight | less
 	diff = diff-highlight | less
+	branch = false
+	tag = false
 [branch]
 	autoSetupRebase = always
 [pull]
@@ -65,3 +67,7 @@
 
 [init]
 	templatedir = ~/.git-templates
+[core]
+	pager = less -r
+[color]
+	ui = true
