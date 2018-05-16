@@ -33,7 +33,7 @@ function! LightLineFilename()
 endfunction
 " }}}
 
-colorscheme Tomorrow-Night
+colorscheme jellybeans
 
 set undodir=~/.vimundo
 if !isdirectory(expand(&undodir))

@@ -35,7 +35,7 @@
 	default = simple
 	followTags = true
 [merge]
-	tool = opendiff
+	tool = vimdiff
 	conflictstyle = diff3
 	prompt = false
 [filter "lfs"]
@@ -47,11 +47,11 @@
 [diff]
 	indentHeuristic = true
 [interactive]
-	diffFilter = diff-highlight
+	diffFilter = colordiff
 [pager]
-	log = diff-highlight | less
-	show = diff-highlight | less
-	diff = diff-highlight | less
+	log = colordiff | less
+	show = colordiff | less
+	diff = colordiff | less
 	branch = false
 	tag = false
 [branch]
