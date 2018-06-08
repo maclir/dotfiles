@@ -15,6 +15,9 @@ source /usr/local/opt/nvm/nvm.sh
 export PATH=$PATH:$GOPATH/bin
 export PATH=$PATH:$GOROOT/bin
 
+#FZF
+export FZF_DEFAULT_COMMAND='fd --type f --hidden --follow --exclude .git'
+
 # Don't save duplicates in bash history
 export HISTCONTROL=erasedups
 

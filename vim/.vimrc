@@ -15,6 +15,9 @@ set number
 
 set nowrapscan
 
+set wrap
+autocmd FilterWritePre * if &diff | setlocal wrap< | endif
+
 " lightline configuration {{{
 set laststatus=2
 set noshowmode
