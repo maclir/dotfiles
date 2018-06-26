@@ -2,6 +2,7 @@
 	name = Alireza Pazirandeh
 	email = maclir@gmail.com
 [alias]
+	recent = !sh -c '~/.git-recently-checkout-branches.sh'
 	ignore = update-index --assume-unchanged
 	unignore = update-index --no-assume-unchanged
 	ignored = !git ls-files -v | grep ^[a-z]
