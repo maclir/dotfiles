@@ -1,11 +1,12 @@
 #!/bin/bash
 set -e
 
-git reflog -n100 --pretty='%cr|%gs' --grep-reflog='checkout: moving' HEAD | {
+git reflog -n100 --date=relative HEAD | grep 'checkout: moving' | {
   seen=":"
   git_dir="$(git rev-parse --git-dir)"
   while read line; do
-    date="${line%%|*}"
+    date="${line%%\}*}"
+    date="${date##*\{}"
     branch="${line##* }"
     if ! [[ $seen == *:"${branch}":* ]]; then
       seen="${seen}${branch}:"
