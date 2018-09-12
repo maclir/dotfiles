@@ -70,7 +70,7 @@ alias pull_request=run_open_pull_request
 
 
 login_application() {
-	adb shell input keyboard text ${1} && adb shell input keyevent 61 && adb shell input text ${2} && adb shell input keyevent 66
+	adb shell input keyboard text "${1}" && adb shell input keyevent 61 && adb shell input text "${2}" && adb shell input keyevent 66
 }
 alias flogin=login_application
 
