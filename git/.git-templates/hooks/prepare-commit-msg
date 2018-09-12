@@ -15,5 +15,5 @@ if [[ "$(cat $1)" =~ .*$BRANCH_NAME.* ]]; then
     exit 0
 fi
 if ! [ ${#BRANCH_NAME} -eq ${#FULL_BRANCH_NAME} ]; then
-    echo "$BRANCH_NAME $(cat $1)" > $1
+    echo "$(cat $1)\n\n$BRANCH_NAME" > $1
 fi

@@ -1,7 +1,7 @@
 #!/bin/bash
 set -e
 
-git reflog -n100 --date=relative HEAD | grep 'checkout: moving' | {
+git reflog -n200 --date=relative HEAD | grep 'checkout: moving' | {
   seen=":"
   git_dir="$(git rev-parse --git-dir)"
   while read line; do
