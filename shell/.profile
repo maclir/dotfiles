@@ -12,6 +12,8 @@ export NVM_DIR="$HOME/.nvm"
 source /usr/local/opt/nvm/nvm.sh
 
 #Go
+export GOPATH=$HOME/go-workspace
+export GOROOT=/usr/local/opt/go/libexec
 export PATH=$PATH:$GOPATH/bin
 export PATH=$PATH:$GOROOT/bin
 
