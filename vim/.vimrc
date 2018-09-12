@@ -13,8 +13,6 @@ set autoindent
 set ruler
 set number
 
-set nowrapscan
-
 set wrap
 autocmd FilterWritePre * if &diff | setlocal wrap< | endif
 
