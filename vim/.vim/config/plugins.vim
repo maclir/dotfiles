@@ -11,5 +11,6 @@ Plug 'tpope/vim-commentary'
 Plug 'itchyny/lightline.vim'
 Plug 'itchyny/vim-gitbranch'
 Plug 'rking/ag.vim'
+Plug 'neomake/neomake'
 
 call plug#end()

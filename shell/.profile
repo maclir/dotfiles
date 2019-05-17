@@ -13,9 +13,10 @@ source /usr/local/opt/nvm/nvm.sh
 
 #Go
 export GOPATH=$HOME/go-workspace
-export GOROOT=/usr/local/opt/go/libexec
+export GOROOT="/usr/local/opt/go/libexec"
 export PATH=$PATH:$GOPATH/bin
 export PATH=$PATH:$GOROOT/bin
+export GO111MODULE=on
 
 #FZF
 export FZF_DEFAULT_COMMAND='fd --type f --hidden --follow --exclude .git'
@@ -80,3 +81,22 @@ take_adb_screenshot() {
 	adb shell rm /sdcard/${1}.png
 }
 alias adb_screenshot=take_adb_screenshot
+
+watch_command() {
+	fswatch -o . | xargs -n1 -I % sh -c "
+	echo \"----\"
+	$@
+	if [ $? != 0 ]
+	then
+		echo \"Success :)\"
+	else
+		echo \"Failed :'(\"
+	fi
+	"
+}
+alias follow=watch_command
+
+get_gitlab_activity() {
+	curl -s https://git.frontiercargroup.org/api/v4/users/22/events\?private_token\=$GITLAB_TOKEN | jq . | grep target_title
+}
+alias gitlab-activity=get_gitlab_activity

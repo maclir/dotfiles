@@ -73,6 +73,11 @@ autocmd FileType yaml setlocal ts=2 sts=2 sw=2 expandtab
 au BufRead,BufNewFile *.yaml set filetype=ansible
 " }}}
 
+
+" Go {{{
+let g:go_fmt_command = "goimports"
+" }}}
+
 " Remove trailing whitespace {{{
 autocmd BufWritePre * %s/\s\+$//e
 autocmd FileType json,raml,yaml autocmd BufWritePre <buffer> %s/\s\+$//e
@@ -81,4 +86,13 @@ autocmd FileType json,raml,yaml autocmd BufWritePre <buffer> %s/\s\+$//e
 " Load Config {{{
 runtime! config/mappings.vim
 runtime! config/plugins.vim
+" }}}
+
+" neomake config {{{
+" When writing a buffer (no delay).
+call neomake#configure#automake('w')
+" }}}
+
+" md files width {{{
+au BufRead,BufNewFile *.md setlocal textwidth=80
 " }}}
