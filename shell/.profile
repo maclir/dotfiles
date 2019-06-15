@@ -100,3 +100,6 @@ get_gitlab_activity() {
 	curl -s https://git.frontiercargroup.org/api/v4/users/22/events\?private_token\=$GITLAB_TOKEN | jq . | grep target_title
 }
 alias gitlab-activity=get_gitlab_activity
+
+export BASH_COMPLETION_COMPAT_DIR="/usr/local/etc/bash_completion.d"
+[[ -r "/usr/local/etc/profile.d/bash_completion.sh" ]] && . "/usr/local/etc/profile.d/bash_completion.sh"
