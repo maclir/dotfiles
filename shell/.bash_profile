@@ -1,1 +1,3 @@
-source ~/.bash_scripts/git-completion.bash
+source $HOME/.profile
+
+source $HOME/.bash_scripts/git-completion.bash

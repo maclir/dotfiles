@@ -65,6 +65,7 @@
 	keepBackup = false
 [ghq]
 	root = ~/.ghq
+	root = /Users/maclir/go-workspace/src
 
 [init]
 	templatedir = ~/.git-templates
