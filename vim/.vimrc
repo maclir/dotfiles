@@ -7,7 +7,6 @@ set cursorline
 filetype indent plugin on
 set hlsearch
 
-set ignorecase
 set smartcase
 set autoindent
 set ruler
@@ -96,3 +95,9 @@ call neomake#configure#automake('w')
 " md files width {{{
 au BufRead,BufNewFile *.md setlocal textwidth=80
 " }}}
+
+" faster GoDef {{{
+let g:go_def_mode = 'godef'
+" }}}
+
+let g:is_posix = 1

@@ -101,5 +101,19 @@ get_gitlab_activity() {
 }
 alias gitlab-activity=get_gitlab_activity
 
+ghq-cd () {
+    if [ -n "$1" ]; then
+        dir="$(ghq list --full-path --exact "$1")"
+        if [ -z "$dir" ]; then
+            echo "no directroies found for '$1'"
+            return 1
+        fi
+        cd "$dir"
+        return
+    fi
+    echo 'usage: ghq-cd $repo'
+    return 1
+}
+
 export BASH_COMPLETION_COMPAT_DIR="/usr/local/etc/bash_completion.d"
 [[ -r "/usr/local/etc/profile.d/bash_completion.sh" ]] && . "/usr/local/etc/profile.d/bash_completion.sh"

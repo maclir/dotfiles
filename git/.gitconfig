@@ -70,6 +70,6 @@
 [init]
 	templatedir = ~/.git-templates
 [core]
-	pager = less -r
+	pager = less --raw-control-chars
 [color]
-	ui = true
+	ui = always
