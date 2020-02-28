@@ -3,6 +3,7 @@ export PATH=$PATH:/usr/local/git/bin
 export PATH="/usr/local/opt/python/libexec/bin:$PATH"
 
 source ~/.env.sh
+source ~/.completion/ghq-cd.sh
 
 export ANDROID_LINT_INCLUDE_LDPI="true"
 export LC_ALL=en_US.UTF-8
