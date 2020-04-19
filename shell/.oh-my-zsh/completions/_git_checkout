@@ -1,0 +1,15 @@
+#compdef _git-checkout git
+
+_git-checkout()
+{
+
+  #case "${words[2]}" in
+  #  checkout) words[1,2]=(git ls-files);;
+  #  g) words[1,2]=(git grep);;
+  #  *) return 1;;
+  #esac
+
+  # Delegate to completion
+  _git
+}
+

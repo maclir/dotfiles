@@ -3,7 +3,6 @@ export PATH=$PATH:/usr/local/git/bin
 export PATH="/usr/local/opt/python/libexec/bin:$PATH"
 
 source ~/.env.sh
-source ~/.completion/ghq-cd.sh
 
 export ANDROID_LINT_INCLUDE_LDPI="true"
 export LC_ALL=en_US.UTF-8
@@ -37,10 +36,9 @@ source ~/.google-cloud-sdk/completion.zsh.inc
 source ~/.google-cloud-sdk/path.zsh.inc
 
 # Aliases
-curl_jira() {
+jira() {
 	curl -s -X GET -H "Authorization: Basic ${JIRA_TOKEN}" -H "Content-Type: application/json" "https://frontiercargroup.atlassian.net/rest/api/2/search?jql=assignee=currentuser()+AND+status!=\"open\"+AND+status!=\"closed\"+AND+status!=\"Backlog\"+AND+status!=\"Live\"+AND+status!=\"Done\"+ORDER+BY+status+ASC&fields=summary,status" | jq '.issues[] | .key + " (" + .fields.status.name + "): " + .fields.summary'
 }
-alias jira=curl_jira
 
 curl_circleci() {
 	curl -v -X POST https://circleci.com/api/v1/project/Saltside/android/tree/$1?circle-token=${CIRCLECI_TOKEN}

@@ -1,4 +1,4 @@
-#!/usr/bin/sh
+#compdef _ghq-cd ghq-cd
 
 __ghq_repositories () {
     local -a _repos
@@ -6,11 +6,9 @@ __ghq_repositories () {
     _describe -t repositories Repositories _repos
 }
 
-_ghq_completion()
+_ghq-cd ()
 {
 	_arguments -C \
 	'1: :__ghq_repositories' \
 	&& ret=0
 }
-
-compdef _ghq_completion ghq-cd
