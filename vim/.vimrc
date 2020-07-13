@@ -101,3 +101,4 @@ let g:go_def_mode = 'godef'
 " }}}
 
 let g:is_posix = 1
+

@@ -2,6 +2,7 @@
 	name = Alireza Pazirandeh
 	email = maclir@gmail.com
 [alias]
+	release = !sh -c '~/.git-tag-patch.sh'
 	recent = !sh -c '~/.git-recently-checkout-branches.sh'
 	ignore = update-index --assume-unchanged
 	unignore = update-index --no-assume-unchanged
@@ -64,8 +65,8 @@
 [mergetool]
 	keepBackup = false
 [ghq]
-	root = ~/.ghq
 	root = /Users/maclir/go-workspace/src
+	root = ~/.ghq
 
 [init]
 	templatedir = ~/.git-templates

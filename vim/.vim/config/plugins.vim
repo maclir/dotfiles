@@ -13,5 +13,8 @@ Plug 'itchyny/lightline.vim'
 Plug 'itchyny/vim-gitbranch'
 Plug 'rking/ag.vim'
 Plug 'neomake/neomake'
+Plug 'udalov/kotlin-vim'
+Plug 'delphinus/vim-firestore'
+Plug 'leafgarland/typescript-vim'
 
 call plug#end()
