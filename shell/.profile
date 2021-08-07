@@ -27,7 +27,7 @@ export HISTCONTROL=erasedups
 # Add ssh agents
 if [ -z "$SSH_AUTH_SOCK" ] ; then
 	eval `ssh-agent -s`
-	ssh-add
+	ssh-add -K
 fi
 
 # gcloud
