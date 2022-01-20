@@ -33,6 +33,10 @@
 		%(color:blue)%(color:bold)%(refname:short)\" \
 		refs/remotes \
 		| column -t -s \"\t\"
+	fixup = !git log -n 60 --pretty=format:'%h %s' --no-merges \
+		| fzf \
+		| cut -c -7 \
+		| xargs -o git commit --fixup
 [push]
 	default = simple
 	followTags = true
