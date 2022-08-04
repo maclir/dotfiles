@@ -10,10 +10,9 @@ export LANG=en_US.UTF-8
 
 #Go
 export GOPATH=$HOME/go-workspace
-export GOROOT="/usr/local/opt/go/libexec"
+export GOROOT="/usr/local/go"
 export PATH=$PATH:$GOPATH/bin
 export PATH=$PATH:$GOROOT/bin
-export GO111MODULE=on
 
 #FZF
 export FZF_DEFAULT_COMMAND='fd --type f --hidden --follow --exclude .git'
