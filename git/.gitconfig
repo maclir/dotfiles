@@ -1,6 +1,7 @@
-[user]
-	name = Alireza Pazirandeh
-	email = maclir@gmail.com
+[includeIf "gitdir:code/work/"]
+    path = /Users/alirezap/code/work/.gitconfig
+[includeIf "gitdir:code/personal/"]
+    path = /Users/alirezap/code/personal/.gitconfig
 [alias]
 	release = !sh -c '~/.git-tag-patch.sh'
 	recent = !sh -c '~/.git-recently-checkout-branches.sh'
