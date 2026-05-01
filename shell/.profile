@@ -5,7 +5,7 @@ elif [ -x /usr/local/bin/brew ]; then
 fi
 export PATH="$HOMEBREW_PREFIX/opt/python/libexec/bin:$HOMEBREW_PREFIX/bin:$HOMEBREW_PREFIX/sbin:$PATH"
 
-source ~/.env.sh
+[ -f ~/.env.sh ] && . ~/.env.sh
 
 export ANDROID_LINT_INCLUDE_LDPI="true"
 export LC_ALL=en_US.UTF-8
