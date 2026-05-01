@@ -1,6 +1,9 @@
-export PATH=$PATH:/usr/local/bin
-export PATH=$PATH:/usr/local/git/bin
-export PATH="/usr/local/opt/python/libexec/bin:$PATH"
+if [ -x /opt/homebrew/bin/brew ]; then
+	export HOMEBREW_PREFIX=/opt/homebrew
+elif [ -x /usr/local/bin/brew ]; then
+	export HOMEBREW_PREFIX=/usr/local
+fi
+export PATH="$HOMEBREW_PREFIX/opt/python/libexec/bin:$HOMEBREW_PREFIX/bin:$HOMEBREW_PREFIX/sbin:$PATH"
 
 source ~/.env.sh
 
@@ -75,8 +78,8 @@ ghq-cd () {
     return 1
 }
 
-export BASH_COMPLETION_COMPAT_DIR="/usr/local/etc/bash_completion.d"
-[[ -r "/usr/local/etc/profile.d/bash_completion.sh" ]] && . "/usr/local/etc/profile.d/bash_completion.sh"
+export BASH_COMPLETION_COMPAT_DIR="$HOMEBREW_PREFIX/etc/bash_completion.d"
+[[ -r "$HOMEBREW_PREFIX/etc/profile.d/bash_completion.sh" ]] && . "$HOMEBREW_PREFIX/etc/profile.d/bash_completion.sh"
 
 # nvm
 export NVM_DIR="$HOME/.nvm"
