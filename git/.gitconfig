@@ -80,6 +80,7 @@
 
 [init]
 	templatedir = ~/.git-templates
+	defaultBranch = master
 [core]
 	pager = less --raw-control-chars
 [color]
