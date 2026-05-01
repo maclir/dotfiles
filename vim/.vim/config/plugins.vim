@@ -6,11 +6,11 @@ Plug 'chase/vim-ansible-yaml'
 Plug 'avakhov/vim-yaml'
 Plug 'editorconfig/editorconfig-vim'
 Plug '/usr/local/opt/fzf'
-Plug 'junegunn/fzf', { 'dir': '~/.fzf', 'do': './install --all' }
+Plug 'junegunn/fzf', { 'do': { -> fzf#install() } }
+Plug 'junegunn/fzf.vim'
 Plug 'airblade/vim-gitgutter'
 Plug 'tpope/vim-commentary'
 Plug 'itchyny/lightline.vim'
-Plug 'itchyny/vim-gitbranch'
 Plug 'rking/ag.vim'
 Plug 'neomake/neomake'
 Plug 'udalov/kotlin-vim'
