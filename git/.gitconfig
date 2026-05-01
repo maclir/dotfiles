@@ -75,7 +75,6 @@
 [mergetool]
 	keepBackup = false
 [ghq]
-	root = /Users/maclir/go-workspace/src
 	root = ~/.ghq
 
 [init]
