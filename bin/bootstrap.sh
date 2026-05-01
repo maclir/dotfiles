@@ -34,13 +34,25 @@ fi
 log "Installing Homebrew packages from Brewfile"
 brew bundle --file "$DOTFILES_DIR/Brewfile" || warn "Some Brewfile entries failed (likely the spotify/sptaps tap on a non-GHE machine). Continuing."
 
-# 4. Move pre-existing real files out of the way so stow can symlink
+# 4. Move pre-existing real files out of the way so stow can symlink.
+# Walks every tracked file in the stow packages; any target that exists
+# as a real file (not a symlink, not the wanted symlink) is moved to
+# *.preexisting so the user can salvage it if needed.
 preexisting=()
-for rel in .zshrc .zprofile .profile .bash_profile .gitconfig; do
-	if [ -e "$HOME/$rel" ] && [ ! -L "$HOME/$rel" ]; then
-		mv "$HOME/$rel" "$HOME/$rel.preexisting"
-		preexisting+=("$HOME/$rel.preexisting")
-	fi
+for pkg_dir in "$DOTFILES_DIR"/*/; do
+	pkg="$(basename "$pkg_dir")"
+	case "$pkg" in
+		direnv|bin) continue ;;
+	esac
+	while IFS= read -r f; do
+		rel="${f#"$pkg_dir"}"
+		target="$HOME/$rel"
+		if [ -e "$target" ] && [ ! -L "$target" ]; then
+			mkdir -p "$(dirname "$target")"
+			mv "$target" "$target.preexisting"
+			preexisting+=("$target.preexisting")
+		fi
+	done < <(find "$pkg_dir" -type f)
 done
 if [ ${#preexisting[@]} -gt 0 ]; then
 	log "Moved pre-existing files aside: ${preexisting[*]}"
