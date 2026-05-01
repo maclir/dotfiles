@@ -1,11 +1,11 @@
 [includeIf "gitdir:code/work/"]
-    path = /Users/alirezap/code/work/.gitconfig
+    path = ~/code/work/.gitconfig
 [includeIf "gitdir:code/personal/"]
-    path = /Users/alirezap/code/personal/.gitconfig
+    path = ~/code/personal/.gitconfig
 [includeIf "gitdir:go-workspace/src/work/"]
-    path = /Users/alirezap/go-workspace/src/work/.gitconfig
+    path = ~/go-workspace/src/work/.gitconfig
 [includeIf "gitdir:go-workspace/src/personal/"]
-    path = /Users/alirezap/go-workspace/src/personal/.gitconfig
+    path = ~/go-workspace/src/personal/.gitconfig
 [alias]
 	release = !sh -c '~/.git-tag-patch.sh'
 	recent = !sh -c '~/.git-recently-checkout-branches.sh'
