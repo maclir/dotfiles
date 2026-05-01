@@ -20,8 +20,8 @@ export GO111MODULE=on
 #FZF
 export FZF_DEFAULT_COMMAND='fd --type f --hidden --follow --exclude .git'
 
-#Use android studio java version
-export JAVA_HOME=/Applications/Android\ Studio.app/Contents/jre/Contents/Home/
+# JAVA_HOME via macOS java_home selector; SDKMAN/.zshrc may override
+export JAVA_HOME="$(/usr/libexec/java_home 2>/dev/null)"
 
 # Don't save duplicates in bash history
 export HISTCONTROL=erasedups
