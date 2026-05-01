@@ -32,11 +32,6 @@ if [ -z "$SSH_AUTH_SOCK" ] ; then
 	ssh-add -K
 fi
 
-# gcloud
-
-source ~/google-cloud-sdk/completion.zsh.inc
-source ~/google-cloud-sdk/path.zsh.inc
-
 # Aliases
 login_application() {
 	adb shell input keyboard text "${1}" && adb shell input keyevent 61 && adb shell input text "${2}" && adb shell input keyevent 66
