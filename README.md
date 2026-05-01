@@ -9,7 +9,7 @@ script for fresh laptops.
 Prerequisite: Xcode Command Line Tools — `xcode-select --install`.
 
 ```sh
-git clone git@github.com:<your-username>/dotfiles.git ~/.dotfiles
+git clone git@github.com:maclir/dotfiles.git ~/.dotfiles
 cd ~/.dotfiles
 make bootstrap
 ```
