@@ -101,4 +101,9 @@ let g:go_def_mode = 'godef'
 " }}}
 
 let g:is_posix = 1
+let g:fzf_layout = { 'down':  '40%'}
 
+set directory^=$HOME/.vim/tmp//
+
+" Automatically remove trailing whitespaces and tabs on save
+autocmd BufWritePre * %s/\s\+$//e
