@@ -2,40 +2,62 @@
 # Edit this file or use Settings (press S) in the TUI
 
 default_tool = "claude"
-theme = "dark"
+theme = "system"
 mcp_default_scope = ""
 
 [tools]
 
 [mcps]
 
+[plugins]
+
 [claude]
   command = ""
   config_dir = ""
   dangerous_mode = true
   allow_dangerous_mode = false
-  auto_mode = true
+  auto_mode = false
+  use_chrome = false
+  use_teammate_mode = false
   env_file = "/Users/alirezap/.agent-deck/env/direnv-load.sh"
 
 [gemini]
   yolo_mode = false
   default_model = ""
   env_file = ""
+  command = ""
 
 [opencode]
   default_model = ""
   default_agent = ""
   env_file = ""
+  command = ""
 
 [codex]
+  command = ""
+  config_dir = ""
   yolo_mode = false
+  env_file = ""
 
 [copilot]
   env_file = ""
+  command = ""
+  default_model = ""
+  allow_all = false
+
+[crush]
+  command = ""
+  env_file = ""
+  yolo_mode = false
+
+[hermes]
+  command = ""
+  env_file = ""
+  yolo_mode = false
 
 [worktree]
   auto_cleanup = false
-  default_enabled = false
+  default_enabled = true
   default_location = ""
 
 [global_search]
@@ -72,13 +94,16 @@ mcp_default_scope = ""
   socket_wait_timeout = 0
 
 [updates]
-  auto_update = false
+  auto_update = true
   check_enabled = true
-  check_interval_hours = 24
-  notify_in_cli = true
+  check_interval_hours = 0
+  notify_in_cli = false
 
 [preview]
-  notes_output_split = 0.0
+  show_output = true
+  show_analytics = false
+  show_notes = false
+  notes_output_split = 0.33
   [preview.analytics]
 
 [experiments]
@@ -156,8 +181,10 @@ mcp_default_scope = ""
   [costs.pricing]
 
 [system_stats]
-  refresh_seconds = 0
-  format = ""
+  enabled = true
+  refresh_seconds = 5
+  format = "compact"
+  show = ["cpu", "ram", "disk", "network"]
 
 [watcher]
   max_events_per_watcher = 0
@@ -173,3 +200,8 @@ mcp_default_scope = ""
 [terminal]
 
 [web]
+
+[ui]
+  preview_pct = 0
+  iterm_open_as = ""
+  remote_latency_refresh_secs = 0

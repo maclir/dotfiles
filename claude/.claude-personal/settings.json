@@ -1,0 +1,109 @@
+{
+  "permissions": {
+    "allow": [
+      "Bash(*)",
+      "Bash(head:*)",
+      "Bash(gcloud logging:*)",
+      "Bash(gcloud compute instances list:*)",
+      "Bash(gcloud scheduler:*)",
+      "Bash(gcloud logging read 'resource.type=\"cloud_run_revision\" AND resource.labels.service_name=\"zynk-bot\" AND timestamp>=\"2026-02-24T10:45:00Z\" AND timestamp<=\"2026-02-24T11:15:00Z\"' --project=zynk-trader --limit=500 --format=json 2>&1 | python3 -c \"\nimport json, sys\ndata = json.load\\(sys.stdin\\)\nfor entry in reversed\\(data\\):\n    ts = entry.get\\('timestamp', ''\\)\n    sev = entry.get\\('severity', ''\\)\n    payload = entry.get\\('textPayload'\\) or entry.get\\('jsonPayload', {}\\).get\\('message', ''\\) or str\\(entry.get\\('jsonPayload', ''\\)\\)\n    http_req = entry.get\\('httpRequest', {}\\)\n    if http_req:\n        payload = f'HTTP {http_req.get\\(\\\\\"requestMethod\\\\\",\\\\\"\\\\\"\\)} {http_req.get\\(\\\\\"requestUrl\\\\\",\\\\\"\\\\\"\\)} status={http_req.get\\(\\\\\"status\\\\\",\\\\\"\\\\\"\\)}' + \\(' | ' + payload if payload else ''\\)\n    labels = entry.get\\('labels', {}\\)\n    instance = labels.get\\('instanceId', ''\\)[-8:] if labels.get\\('instanceId'\\) else ''\n    print\\(f'{ts} [{sev}] [{instance}] {payload}'\\)\n\" 2>&1)",
+      "Bash(gcloud logging read 'protoPayload.methodName=\"v1.compute.instances.reset\" AND timestamp>=\"2026-02-24T11:10:00Z\" AND timestamp<=\"2026-02-24T11:15:00Z\"' --project=zynk-trader --limit=5 --format=json 2>&1 | python3 -c \"\nimport json, sys\ndata = json.load\\(sys.stdin\\)\nfor entry in data:\n    print\\(json.dumps\\(entry, indent=2\\)\\)\n\" 2>&1)",
+      "Bash(gcloud logging read 'protoPayload.methodName=\"v1.compute.instances.reset\" AND timestamp>=\"2026-02-24T00:00:00Z\" AND timestamp<=\"2026-02-24T23:59:59Z\"' --project=zynk-trader --limit=100 --format=json 2>&1 | python3 -c \"\nimport json, sys\ndata = json.load\\(sys.stdin\\)\nfor entry in reversed\\(data\\):\n    ts = entry.get\\('timestamp', ''\\)\n    proto = entry.get\\('protoPayload', {}\\)\n    auth = proto.get\\('authenticationInfo', {}\\)\n    email = auth.get\\('principalEmail', 'UNKNOWN'\\)\n    meta = proto.get\\('requestMetadata', {}\\)\n    ip = meta.get\\('callerIp', ''\\)\n    ua = meta.get\\('callerSuppliedUserAgent', ''\\)\n    op = entry.get\\('operation', {}\\)\n    is_first = op.get\\('first', False\\)\n    is_last = op.get\\('last', False\\)\n    op_id = op.get\\('id', ''\\)[-20:]\n    phase = 'START' if is_first else \\('END' if is_last else 'MID'\\)\n    print\\(f'{ts} [{phase}] {email} from {ip} agent={ua[:40]} op=...{op_id}'\\)\n\" 2>&1)",
+      "Bash(gcloud logging read 'protoPayload.methodName=\"v1.compute.instances.reset\" AND timestamp>=\"2026-02-23T00:00:00Z\" AND timestamp<=\"2026-02-23T23:59:59Z\"' --project=zynk-trader --limit=100 --format=json 2>&1 | python3 -c \"\nimport json, sys\ndata = json.load\\(sys.stdin\\)\nfor entry in reversed\\(data\\):\n    ts = entry.get\\('timestamp', ''\\)\n    proto = entry.get\\('protoPayload', {}\\)\n    auth = proto.get\\('authenticationInfo', {}\\)\n    email = auth.get\\('principalEmail', 'UNKNOWN'\\)\n    meta = proto.get\\('requestMetadata', {}\\)\n    ip = meta.get\\('callerIp', ''\\)\n    ua = meta.get\\('callerSuppliedUserAgent', ''\\)\n    op = entry.get\\('operation', {}\\)\n    is_first = op.get\\('first', False\\)\n    is_last = op.get\\('last', False\\)\n    op_id = op.get\\('id', ''\\)[-20:]\n    phase = 'START' if is_first else \\('END' if is_last else 'MID'\\)\n    print\\(f'{ts} [{phase}] {email} from {ip} agent={ua[:40]} op=...{op_id}'\\)\n\" 2>&1)",
+      "Bash(python3:*)"
+    ],
+    "defaultMode": "plan"
+  },
+  "model": "claude-opus-4-6",
+  "hooks": {
+    "Notification": [
+      {
+        "matcher": "permission_prompt|elicitation_dialog",
+        "hooks": [
+          {
+            "type": "command",
+            "command": "agent-deck hook-handler",
+            "async": true
+          }
+        ]
+      }
+    ],
+    "PermissionRequest": [
+      {
+        "hooks": [
+          {
+            "type": "command",
+            "command": "agent-deck hook-handler"
+          }
+        ]
+      }
+    ],
+    "PreCompact": [
+      {
+        "hooks": [
+          {
+            "type": "command",
+            "command": "agent-deck hook-handler"
+          }
+        ]
+      }
+    ],
+    "SessionEnd": [
+      {
+        "hooks": [
+          {
+            "type": "command",
+            "command": "agent-deck hook-handler",
+            "async": true
+          }
+        ]
+      }
+    ],
+    "SessionStart": [
+      {
+        "hooks": [
+          {
+            "type": "command",
+            "command": "agent-deck hook-handler",
+            "async": true
+          }
+        ]
+      }
+    ],
+    "Stop": [
+      {
+        "hooks": [
+          {
+            "type": "command",
+            "command": "agent-deck hook-handler",
+            "async": true
+          }
+        ]
+      }
+    ],
+    "UserPromptSubmit": [
+      {
+        "hooks": [
+          {
+            "type": "command",
+            "command": "agent-deck hook-handler",
+            "async": true
+          }
+        ]
+      }
+    ]
+  },
+  "enabledPlugins": {
+    "gopls-lsp@claude-plugins-official": true,
+    "frontend-design@claude-plugins-official": true
+  },
+  "sandbox": {
+    "filesystem": {
+      "allowWrite": [
+        "/Users/alirezap/code/personal"
+      ]
+    }
+  },
+  "effortLevel": "high",
+  "skipDangerousModePermissionPrompt": true
+}
